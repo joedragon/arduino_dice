@@ -86,12 +86,18 @@ void loop()
 
 
 void up_button_switcher(){
+tone(buzzer, 800); // Send 1KHz sound signal...
+delay(50);        // ...for 1 sec
+noTone(buzzer);  
 if (diceroaled == false){changeDice(1);}
 else { display_dice_roles(1);
 }
 }
 
 void down_buttom_switcher(){
+tone(buzzer, 300); // Send 1KHz sound signal...
+delay(50);        // ...for 1 sec
+noTone(buzzer);   
 if (diceroaled == false){changeDice(0);}
 else {
   display_dice_roles(0);
@@ -279,12 +285,6 @@ void roal_the_dice(){
 
 }
 
-
-
-
-
-
-
 //Flashes the highlited text 
 void flash_cursor(int amount)
 {
@@ -376,16 +376,10 @@ switch (action) {
     if (diceroles[jumparray_pos] > 0)
     {
     diceroles[jumparray_pos] = diceroles[jumparray_pos] - 1;
-    tone(buzzer, 300); // Send 1KHz sound signal...
-    delay(50);        // ...for 1 sec
-    noTone(buzzer);   
     }
     break;
   case 1:
-    diceroles[jumparray_pos] = diceroles[jumparray_pos] + 1;
-    tone(buzzer, 800); // Send 1KHz sound signal...
-    delay(50);        // ...for 1 sec
-    noTone(buzzer);   
+    diceroles[jumparray_pos] = diceroles[jumparray_pos] + 1; 
     break;
   case 2:
     diceroles[jumparray_pos] = 0;
